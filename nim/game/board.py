@@ -19,9 +19,11 @@ class Board:
             return text
 
     def apply(self,move):
-       pile = move.get_pile()
-       stone = move.get_stones()
-       self.piles[pile] = max(0, self.piles[pile] - stone)
+        for i in range(self.piles):
+            if i == move.get_pile():
+                self.piles[i] = max(0, self.piles[i] - move.get_stones())
+            else:
+                pass
 
     def is_empty(self):
         if len(self.piles) == 0:
