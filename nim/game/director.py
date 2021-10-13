@@ -10,7 +10,6 @@ class Director:
     
     Stereotype:
         Controller
-
     Attributes:
         board (Hunter): An instance of the class of objects known as Board.
         console (Console): An instance of the class of objects known as Console.
@@ -57,7 +56,6 @@ class Director:
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
         that means getting the move from the current player.
-
         Args:
             self (Director): An instance of Director.
         """
@@ -75,7 +73,6 @@ class Director:
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
         this case, that means updating the board with the current move.
-
         Args:
             self (Director): An instance of Director.
         """
@@ -86,7 +83,6 @@ class Director:
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there are stones left and declaring the winner.
-
         Args:
             self (Director): An instance of Director.
         """
@@ -96,6 +92,3 @@ class Director:
             print(f"\n{name} won!")
             self._keep_playing = False
         self._roster.next_player()
-
-     
-       

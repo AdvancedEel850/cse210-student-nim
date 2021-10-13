@@ -12,26 +12,24 @@ class Board:
 
     def to_string(self):
 
-        text = "----------------------------"
+        text = '--------------------'
         for piles, stones in enumerate(self.piles):
-            text += (f'\n{piles}:' + ' 0 ' * stones)
-            text += "\n----------------------------"
-            return text
+            text += (f'\n {piles}: ' + ' O ' * stones)
+        text += '\n--------------------'
+        return text
 
     def apply(self,move):
-        for i in range(self.piles):
-            if i == move.get_pile():
-                self.piles[i] = max(0, self.piles[i] - move.get_stones())
-            else:
-                pass
+        piles = move.get_pile()
+        stones = move.get_stones()
+        self.piles[piles] = max(0, self.piles[piles] - stones)
 
     def is_empty(self):
-        if len(self.piles) == 0:
-            return 1 == 1
+        
+        empty = [0] * len(self.piles)
+        return self.piles == empty
 
     def _prepare(self):
         piles = random.randint(2,5)
-
-        for x in range(piles):
+        for n in range(piles):
             stones = random.randint(1,9)
             self.piles.append(stones)
